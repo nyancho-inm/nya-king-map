@@ -17,7 +17,6 @@
 
 | Colum         | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| nickname      | string     | null: false                    |
 | message       | text       |                                |
 | prefecture_id | integer    | null: false                    |
 | area          | string     | null: false                    |
