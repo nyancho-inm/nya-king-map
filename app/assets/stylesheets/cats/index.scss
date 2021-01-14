@@ -44,11 +44,11 @@ a {
   height: 9vh;
 }
 
-.select-reason-contents {
+.how-to-contents {
   padding: 5vh 15vw;
 }
 
-.select-reason-contents>.title {
+.how-to-contents>.title {
   text-align: center;
   font-size: 3.5vh;
   font-weight: bold;
@@ -56,7 +56,7 @@ a {
   position: relative;
 }
 
-.select-reason-contents>.title::after {
+.how-to-contents>.title::after {
   content: '';
   width: 70px;
   height: 4px;
@@ -113,9 +113,8 @@ a {
   font-size: 18px;
   margin-top: 20px;
 }
-/* 商品一覧 */
 
-.item-contents {
+.cat-contents {
   background-color: #FFF;
   display: flex;
   flex-direction: column;
@@ -123,13 +122,13 @@ a {
   padding: 10vh 0;
 }
 
-.item-contents>.title {
+.cat-contents>.title {
   font-size: 5vh;
   line-height: 1.4;
   font-weight: bold;
 }
 
-.item-contents>.subtitle {
+.cat-contents>.subtitle {
   font-size: 3vh;
   margin: 1vh 0;
   text-decoration: none;
@@ -137,56 +136,40 @@ a {
   font-weight: bold;
 }
 
-.item-lists {
+.cat-lists {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.item-lists>.list {
+.cat-lists>.list {
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
 }
 
 
-.item-img-content {
+.cat-img-content {
   position: relative;
 }
 
-.item-img {
-  width: 33vh;
+.cat-img {
+  width: 40vh;
   height: 33vh;
 }
 
-.sold-out {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
-}
-
-.sold-out>span {
-  color: #FFF;
-  font-size: 45px;
-  font: bold;
-}
-
-
-.item-info {
+.cat-info {
   background-color: #FFF;
   color: black;
   padding: 1vw;
 }
 
-.item-name {
+.prefecture-name {
   font-size: 2.5vh;
 }
 
-.item-price {
+.area-name {
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
