@@ -11,15 +11,12 @@
     
     <div class="img-upload">
       <div class="weight-bold-text">
-        画像 ※複数投稿できます
-        <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"cat-image" %>
-      </div>
+        画像 ※複数OK
+        <span class="indispensable">必須</span> 
+        <div class="click-upload">               
+          <%= f.file_field :image, id:"cat-image" %>
+        </div>
+      </div>      
     </div>
     
     <div class="nickname">
