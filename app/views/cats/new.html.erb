@@ -11,7 +11,7 @@
     
     <div class="img-upload">
       <div class="weight-bold-text">
-        画像
+        画像 ※複数投稿できます
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
@@ -23,10 +23,6 @@
     </div>
     
     <div class="nickname">
-      <%#div class="weight-bold-text">
-        ニックネーム
-      </div>
-      <%= f.text_area :hoge, class:"nickname-text", id:"nickname" %>
       <div class="cats-explain">
         <div class="weight-bold-text">
           メッセージ
@@ -54,13 +50,10 @@
         <%= f.text_area :place, class:"place-text", id:"cat-place" %>
       </div>
     </div>
-    <%# /商品の詳細 %>
-    <%# 下部ボタン %>
     <div class="post-btn-contents">
       <%= f.submit "投稿する" ,class:"post-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
-    <%# /下部ボタン %>
   </div>
   <% end %>
 
