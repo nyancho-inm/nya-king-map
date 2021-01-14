@@ -8,4 +8,6 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :nickname, presence: true
+
+  has_many :cats
 end
