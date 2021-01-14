@@ -10,7 +10,12 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def create
-    Cat.create(cat_params)
+    @cat = Cat.new(cat_params)
+    if @cat.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private

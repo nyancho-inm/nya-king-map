@@ -7,6 +7,7 @@ class Cat < ApplicationRecord
   with_options presence: true do
     validates :prefecture_id
     validates :area
+    validates :image
   end
   validates :prefecture_id, numericality: { other_than: 0 }
 
