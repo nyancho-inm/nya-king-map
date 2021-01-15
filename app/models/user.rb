@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
   VALID_PASSWORD_REGEX = /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/.freeze
-  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は英語と数字を使用してください' }
   validates :nickname, presence: true
 
   has_many :cats
