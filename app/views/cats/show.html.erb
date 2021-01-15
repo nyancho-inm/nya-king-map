@@ -1,6 +1,5 @@
 <%= render "shared/header" %>
 
-<%# 商品の概要 %>
 <div class="cat-show">
   <div class="cat-box">
     <h2 class="name">
@@ -12,7 +11,7 @@
 
     <% if user_signed_in? %>
       <% if current_user.id == @cat.user_id %>
-        <%= link_to '内容の編集', "#", method: :get, class: "item-red-btn" %>
+        <%= link_to '内容の編集', edit_cat_path, method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
         <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
       <% end %>
