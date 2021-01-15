@@ -16,46 +16,6 @@
     </div>
   </div>
 
-  <div class='how-to-contents'>
-    <h2 class='title'>
-      楽しみ方いろいろ
-    </h2>
-    <ul class='reason-lists'>
-      <li class='list'>
-        <%= image_tag "1.jpg", class:"list-pict" %>
-        <span class='reason-list-number'>1</span>
-        <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>投稿</span>
-          でみんなに教えよう
-        </h3>
-        <p class='reason-list-description'>
-          可愛い猫が近所にいるかも！！
-        </p>
-      </li>
-      <li class='list'>
-        <%= image_tag "10.jpg", class:"list-pict" %>
-        <span class='reason-list-number'>2</span>
-        <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>お出かけ</span>
-          会いにいく？
-        </h3>
-        <p class='reason-list-description'>
-          地域の看板猫に会えるかも！
-        </p>
-      </li>
-      <li class='list'>
-        <%= image_tag "11.jpg", class:"list-pict" %>
-        <span class='reason-list-number'>3</span>
-        <h3 class='reason-list-text'>
-          周辺も
-          <span class='reason-list-blue-text'>ぶらりお散歩</span>
-        </h3>
-        <p class='reason-list-description'>
-          カフェなどの周辺情報も載せてね
-        </p>
-      </li>
-    </ul>
-  </div>
   <div class='cat-contents'>
     <h2 class='title'>みんなで作ろう</h2>
     <%= link_to 'MAPPING!!', new_cat_path, class: "subtitle" %>
@@ -64,7 +24,7 @@
       <% if @cats.length >= 1 %>
         <% @cats.each do |cat| %>    
           <li class='list'>
-            <%= link_to "#" do %>
+            <%= link_to cat_path(cat.id), method: :get do %>
               <div class='cat-img-content'>
                 <%= image_tag cat.image, class: "cat-img" %>
               </div>
@@ -104,6 +64,47 @@
           <% end %>
         </li>
       <% end %>
+    </ul>
+  </div>
+
+  <div class='how-to-contents'>
+    <h2 class='title'>
+      楽しみ方いろいろ
+    </h2>
+    <ul class='reason-lists'>
+      <li class='list'>
+        <%= image_tag "1.jpg", class:"list-pict" %>
+        <span class='reason-list-number'>1</span>
+        <h3 class='reason-list-text'>
+          <span class='reason-list-blue-text'>投稿</span>
+          でみんなに教えよう
+        </h3>
+        <p class='reason-list-description'>
+          可愛い猫が近所にいるかも！！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "10.jpg", class:"list-pict" %>
+        <span class='reason-list-number'>2</span>
+        <h3 class='reason-list-text'>
+          <span class='reason-list-blue-text'>お出かけ</span>
+          会いにいく？
+        </h3>
+        <p class='reason-list-description'>
+          地域の看板猫に会えるかも！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "13.jpg", class:"list-pict" %>
+        <span class='reason-list-number'>3</span>
+        <h3 class='reason-list-text'>
+          周辺も
+          <span class='reason-list-blue-text'>ぶらりお散歩</span>
+        </h3>
+        <p class='reason-list-description'>
+          カフェなどの周辺情報も載せてね
+        </p>
+      </li>
     </ul>
   </div>
 </div>
