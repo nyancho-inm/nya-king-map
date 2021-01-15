@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
-
+before_action :set_cat ,only: [:show, :edit, :update, :destroy]
   def index
     @cats = Cat.all
   end
@@ -19,15 +19,12 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def show
-    @cat = Cat.find(params[:id])
   end
 
   def edit
-    @cat = Cat.find(params[:id])
   end
 
   def update
-    @cat = Cat.find(params[:id])
     if @cat.update(cat_params)
       redirect_to cat_path
     else
@@ -35,8 +32,7 @@ before_action :authenticate_user!, except: [:index, :show]
     end
   end
 
-  def destroy
-    @cat = Cat.find(params[:id])
+  def destroy  
     if @cat.destroy
       redirect_to root_path
     end
@@ -46,5 +42,9 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def cat_params
     params.require(:cat).permit(:message, :prefecture_id, :area, :place, :image).merge(user_id: current_user.id)
+  end
+
+  def set_cat
+    @cat = Cat.find(params[:id])
   end
 end
