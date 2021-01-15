@@ -1,0 +1,12 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     cat:
+        image: 画像
+        message: メッセージ
+        prefecture_id: 都道府県
+        area: 市町村
+        place: 会えた場所
+        user: ユーザー情報
