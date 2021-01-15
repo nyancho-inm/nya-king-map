@@ -9,7 +9,7 @@ class Cat < ApplicationRecord
     validates :area
     validates :image
   end
-  validates :prefecture_id, numericality: { other_than: 0 }
+  validates :prefecture_id, numericality: { other_than: 0, message: 'は--以外を選んでください' }
 
   
 end
