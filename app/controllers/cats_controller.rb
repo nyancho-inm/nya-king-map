@@ -35,6 +35,13 @@ before_action :authenticate_user!, except: [:index, :show]
     end
   end
 
+  def destroy
+    @cat = Cat.find(params[:id])
+    if @cat.destroy
+      redirect_to root_path
+    end
+  end
+
   private
 
   def cat_params
