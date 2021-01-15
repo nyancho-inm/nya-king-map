@@ -48,19 +48,12 @@
       <% if @cats.length == 0 %>
         <li class='list'>
           <%= link_to '#' do %>
-          <%= image_tag "4.jpg", class: "item-img" %>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              写真を投稿してね
-            </h3>
-            <div class='item-price'>
-              <span>99999999円<br>(税込み)</span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
-              </div>
+           <%= image_tag "4.jpg", class: "item-img" %>
+            <div class='cat-info'>
+              <h1>
+                写真を投稿してね
+              </h1>
             </div>
-          </div>
           <% end %>
         </li>
       <% end %>
