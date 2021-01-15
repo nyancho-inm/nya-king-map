@@ -24,7 +24,7 @@
       <% if @cats.length >= 1 %>
         <% @cats.each do |cat| %>    
           <li class='list'>
-            <%= link_to "#" do %>
+            <%= link_to cat_path(cat.id), method: :get do %>
               <div class='cat-img-content'>
                 <%= image_tag cat.image, class: "cat-img" %>
               </div>

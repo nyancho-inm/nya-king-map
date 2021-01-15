@@ -18,6 +18,10 @@ before_action :authenticate_user!, except: [:index, :show]
     end
   end
 
+  def show
+    @cat = Cat.find(params[:id])
+  end
+
   private
 
   def cat_params
