@@ -13,7 +13,7 @@
       <% if current_user.id == @cat.user_id %>
         <%= link_to '内容の編集', edit_cat_path, method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
-        <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
+        <%= link_to '削除', cat_path, method: :delete, class:'item-destroy' %>
       <% end %>
     <% end %>
 
