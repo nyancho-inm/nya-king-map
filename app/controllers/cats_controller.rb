@@ -41,7 +41,7 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
   private
 
   def cat_params
-    params.require(:cat).permit(:message, :prefecture_id, :area, :place, :image).merge(user_id: current_user.id)
+    params.require(:cat).permit(:message, :prefecture_id, :area, :place, images: []).merge(user_id: current_user.id)
   end
 
   def set_cat

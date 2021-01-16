@@ -6,7 +6,9 @@
       <%= @cat.prefecture.name %> <%= @cat.area %> <%= @cat.place %>
     </h2>
     <div class='cat-img-content'>
-      <%= image_tag @cat.image ,class:"cat-box-img" %>
+      <% @cat.images.each do |image|%>
+        <%= image_tag image ,class:"cat-box-img" %>
+      <% end %>
     </div>
 
     <% if user_signed_in? %>
