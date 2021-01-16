@@ -19,6 +19,8 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @comment = Comment.new
+    @comments = @cat.comments.includes(:user)
   end
 
   def edit
