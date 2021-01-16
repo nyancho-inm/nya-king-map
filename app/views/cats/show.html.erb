@@ -57,25 +57,25 @@
       </div>
     </div>
   </div>
-
-  <p>< コメント一覧 ></p>
-  <div id='comment'>
-    <% @comments.reverse_each do |comment| %>
-      <p>
-        <strong><%= comment.user.nickname %>:</strong>
-        <%= comment.text %>
-      </p>
-    <% end %>
-  </div>
   <div class="comment-box">
-    <%= form_with model: [@cat, @comment], class: 'form', local: true do |f| %>
-      <%= f.text_area :text, class: "comment-text", id: "comment-text" %>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-      </p>
-      <%= f.button type: "submit", class: "comment-btn" do %>
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
+    <% if user_signed_in? %>
+      <p>< コメント一覧 ></p>
+      <div id='comment' >
+        <% @comments.reverse_each do |comment| %>
+          <div class='comment-area'>
+            <div class="nickname"><%= comment.user.nickname %></div>          
+            <div class="comment"><%= comment.text %></div>
+            <div class="delete"><%= link_to "削除", cat_comment_path(@cat, comment), method: :delete, class: "comment-delete" %></div>      
+          </div>
+        <% end %>
+      </div>
+    
+      <%= form_with model: [@cat, @comment], class: 'form', local: true do |f| %>
+        <%= f.text_area :text, class: "comment-text", id: "comment-text" %>
+        <%= f.button type: "submit", class: "comment-btn" do %>
+          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+          <span>コメントする<span>
+        <% end %>
       <% end %>
     <% end %>
   </div>

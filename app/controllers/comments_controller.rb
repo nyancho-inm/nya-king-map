@@ -3,7 +3,14 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      ActiveCable.server.broadcast 'comment_channel', {content: @comment, user: @comment.user}
+      redirect_to "/cats/#{@comment.cat.id}" 
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to "/cats/#{@comment.cat.id}" 
     end
   end
 
