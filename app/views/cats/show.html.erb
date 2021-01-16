@@ -5,6 +5,7 @@
     <h2 class="name">
       <%= @cat.prefecture.name %> <%= @cat.area %> <%= @cat.place %>
     </h2>
+      画像はスライドできます
     <div class='cat-img-content'>
       <% @cat.images.each do |image|%>
         <%= image_tag image ,class:"cat-box-img" %>

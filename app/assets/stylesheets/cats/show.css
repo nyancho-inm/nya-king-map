@@ -10,7 +10,7 @@
 
 .cat-box {
   background-color:  #f8f8f8;
-  width: 70vw;
+  width: 90vw;
   min-width: 1200px;
   padding: 10vh 15vw;
   display: flex;
@@ -19,11 +19,9 @@
 }
 
 .cat-img-content {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 .cat-box>.name {
@@ -33,11 +31,11 @@
 }
 
 .cat-box-img {
-  height: 60vh;
-  width: 70vw;
-  min-height: 500px;
-  object-fit: contain;
-}
+   display: inline-block;
+      width: 90%;
+      height: 90%;
+      margin: 16px;
+    }
 
 .item-red-btn {
   text-align: center;
