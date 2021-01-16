@@ -7,53 +7,54 @@
     <h2 class="cat-post-title">投稿ページ</h2>
     <%= form_with model: @cat, local: true do |f| %>
 
-    <%= render 'shared/error_messages', model: f.object %>
-    
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        画像 ※複数OK
-        <span class="indispensable">必須</span> 
-        <div class="click-upload">               
-          <%= f.file_field :image, id:"cat-image" %>
-        </div>
-        <div class="image-list" id="image-list"></div>
-      </div>      
-    </div>
-    
-    <div class="nickname">
-      <div class="cats-explain">
+      <%= render 'shared/error_messages', model: f.object %>
+      
+      <div class="img-upload">
         <div class="weight-bold-text">
-          メッセージ
-        </div>
-        <%= f.text_area :message, class:"cats-text", id:"cat-info",rows:"7" ,maxlength:"1000" %>
+          画像 ※複数OK
+          <span class="indispensable">必須</span> 
+          <div class="click-upload">               
+            <%= f.file_field :images, name: 'cat[images][]', id: 'cat-image' %>
+          </div>
+          <div class="image-list" id="image-list"></div>
+        </div> 
       </div>
-    </div>
+      
+      <div class="nickname">
+        <div class="cats-explain">
+          <div class="weight-bold-text">
+            メッセージ
+          </div>
+          <%= f.text_area :message, class:"cats-text", id:"cat-info",rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
 
-    <div class="area-detail">
-      <div class="form">
-        <div class="weight-bold-text">
-          都道府県
-          <span class="indispensable">必須</span>
-          <span><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %></span>
+      <div class="area-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            都道府県
+            <span class="indispensable">必須</span>
+            <span><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %></span>
+          </div>
+          
+          <div class="weight-bold-text">
+            市町村
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :area, class:"area-text", id:"cat-area" %>
+          <div class="weight-bold-text">
+            会える場所
+          </div>
+          <%= f.text_area :place, class:"place-text", id:"cat-place" %>
         </div>
-        
-        <div class="weight-bold-text">
-          市町村
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :area, class:"area-text", id:"cat-area" %>
-        <div class="weight-bold-text">
-          会える場所
-        </div>
-        <%= f.text_area :place, class:"place-text", id:"cat-place" %>
       </div>
-    </div>
-    <div class="post-btn-contents">
-      <%= f.submit "投稿する" ,class:"post-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
+      <div class="post-btn-contents">
+        <%= f.submit "投稿する" ,class:"post-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+    <% end %>
   </div>
-  <% end %>
+  
 
   <footer class="cats-post-footer">
     <ul class="menu">

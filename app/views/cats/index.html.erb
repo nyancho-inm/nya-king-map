@@ -20,13 +20,12 @@
     <h2 class='title'>みんなで作ろう</h2>
     <%= link_to 'MAPPING!!', new_cat_path, class: "subtitle" %>
     <ul class='cat-lists'>
-
       <% if @cats.length >= 1 %>
         <% @cats.each do |cat| %>    
           <li class='list'>
             <%= link_to cat_path(cat.id), method: :get do %>
               <div class='cat-img-content'>
-                <%= image_tag cat.image, class: "cat-img" %>
+                 <%= image_tag cat.images[0], class: "cat-img" %>
               </div>
               <div class='cat-info'>
                 <h3 class='prefecture-name'>

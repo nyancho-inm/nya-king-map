@@ -14,8 +14,9 @@
         画像 ※複数OK
         <span class="indispensable">必須</span> 
         <div class="click-upload">               
-          <%= f.file_field :image, id:"cat-image" %>
+          <%= f.file_field :images, name: 'cat[images][]', id: 'cat-image' %>
         </div>
+        <div class="image-list" id="image-list"></div>
       </div>      
     </div>
     
