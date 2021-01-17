@@ -88,6 +88,14 @@
   margin-bottom: 1vh;
 }
 
+.test {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 
 .user-nickname {
   text-decoration: none;
