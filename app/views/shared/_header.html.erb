@@ -7,21 +7,27 @@
       <%= f.button type: "submit", class: "search-button" do %>
         <%= image_tag "search.png", class:"search-icon" %>
       <% end %>
-    <% end %>
+    
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to '地域', "#", class: " area-list" %></li>
-      <li><%= link_to '猫種', "#", class: "type-list" %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li> 
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <% end %>     
     </ul>
     <ul class='lists-right'>
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li> 
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
-    <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-    <% end %>     
+      <%#= search_form_for(@q, url: search_cats_path, class: "search-form") do |f| %>
+        <%= f.label :prefecture_id_, '都道府県で検索', class: "area-list" %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"type-list", id:"prefecture"}) %>
+        <%= f.button type: "submit", class: "search-button-2" do %>
+          <%= image_tag "search.png", class:"search-icon" %>
+        <% end %>
+      <%# end %>
     </ul>
   </div>
+  <% end %> 
 </header>
