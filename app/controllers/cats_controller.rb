@@ -1,6 +1,7 @@
 class CatsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 before_action :set_cat ,only: [:show, :edit, :update, :destroy]
+
   def index
     @cats = Cat.all.order(created_at: :desc)
   end
@@ -38,6 +39,10 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
     if @cat.destroy
       redirect_to root_path
     end
+  end
+
+  def search
+    @cats = Cat.search(params[:keyword])
   end
 
   private

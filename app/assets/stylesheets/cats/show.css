@@ -139,7 +139,7 @@
   height: 70px;
   padding: 10px;
   border: solid 2px #fff;
-  resize: none;
+  resize: none; 
 }
 
 .nickname {
@@ -151,11 +151,8 @@
 .comment-area {
   border: #dedede solid 1px;
   margin: 20px;
-  padding: 10px;
-}
-
-.comment {
-  
+  padding: 20px;
+  border-radius: 100px;
 }
 
 .comment-delete {

@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   root to: 'cats#index'
   resources :cats do
     resources :comments, only: [:create, :destroy, ]
+    collection do
+      get 'search'
+    end
   end
 end
