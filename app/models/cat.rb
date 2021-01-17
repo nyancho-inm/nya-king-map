@@ -12,5 +12,13 @@ class Cat < ApplicationRecord
   end
   validates :prefecture_id, numericality: { other_than: 0, message: 'は--以外を選んでください' }
 
+  def self.search(search)
+    if search != ""
+      Cat.where('area LIKE(?) OR prefecture_id LIKE(?) OR message LIKE(?) OR place LIKE(?)',
+                 "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      Cat.all
+    end
+  end
   
 end

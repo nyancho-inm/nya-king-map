@@ -24,7 +24,7 @@
   width: 65vw;
   height: 5vh;
   display: flex;
-  margin-bottom: 5px;
+  
 }
 
 .search-form>.input-box {
@@ -35,6 +35,14 @@
 
 .search-button {
   width: 5vh;
+  border: 0;
+  cursor: pointer;
+  background-color: lightcoral;
+  padding: 8px;
+}
+
+.search-button-2 {
+  width: 4vh;
   border: 0;
   cursor: pointer;
   background-color: lightcoral;
@@ -57,27 +65,27 @@
 .lists-left {
   display: flex;
   min-width: 200px;
-
+  font-size: 25px;
 }
 
 .area-list {
   text-decoration: none;
-  margin-right: 3vw;
+  margin-right: 1vw;
   color: #333333;
-  font-weight: bold;
+  font-size: 20px;
 }
 
 .type-list {
-  text-decoration: none;
-  color: #333333;
-  font-weight: bold;
-  
+ height: 4vh;
+ width: 10vw;
+ font-size: 15px;
 }
 
 .lists-right {
   display: flex;
   list-style: none;
   align-items: flex-end;
+  margin-bottom: 1vh;
 }
 
 
@@ -85,8 +93,7 @@
   text-decoration: none;
   margin-right: 3vw;
   color: lightcoral;
-  font-weight: bold;
-  
+  font-weight: bold;  
 }
 
 

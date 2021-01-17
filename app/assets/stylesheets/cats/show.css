@@ -74,7 +74,7 @@
   width: 20%;
   background-color: #eee;
   border: 1px solid #dedede;
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -82,7 +82,7 @@
   width: 80%;
   padding: 20px;
   border: 1px solid #dedede;
-  font-size: 14px;
+  font-size: 20px;
   background-color: #fff;
 }
 
@@ -104,8 +104,9 @@
   margin-right: 20px;
 }
 
-.favorite-star-icon {
-  margin-right: 5px;
+.favorite-heart-icon {
+  margin-right: 10px;
+  color: palevioletred;
 }
 
 .report-btn {
@@ -138,7 +139,7 @@
   height: 70px;
   padding: 10px;
   border: solid 2px #fff;
-  resize: none;
+  resize: none; 
 }
 
 .nickname {
@@ -150,11 +151,8 @@
 .comment-area {
   border: #dedede solid 1px;
   margin: 20px;
-  padding: 10px;
-}
-
-.comment {
-  
+  padding: 20px;
+  border-radius: 100px;
 }
 
 .comment-delete {

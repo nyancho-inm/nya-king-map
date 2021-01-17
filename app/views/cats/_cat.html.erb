@@ -1,0 +1,53 @@
+
+　<% @cats %>    
+  <div class="cat-show">
+  <div class="cat-box">
+    <h2 class="name">
+      <%= cat.prefecture.name %> <%= cat.area %> <%= cat.place %>
+    </h2>
+      画像たくさんある場合はスライドで見れるよ
+    <div class='cat-img-content'>
+      <% cat.images.each do |image|%>
+        <%= image_tag image ,class:"cat-box-img" %>
+      <% end %>
+    </div>
+
+    <div class="cat-explain-box">
+      <span><%= "投稿内容" %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-cat">ニックネーム</th>
+          <td class="detail-value"><%= cat.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">メッセージ</th>
+          <td class="detail-value"><%= cat.message %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">都道府県</th>
+          <td class="detail-value"><%= cat.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">市町村</th>
+          <td class="detail-value"><%= cat.area %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">会えた場所</th>
+          <td class="detail-value"><%= cat.place %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "ハートのマーク2.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+      <div class="report-btn">
+        <%= image_tag "パトランプ.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切な投稿の通報</span>
+      </div>
+    </div>
+  </div>
+
