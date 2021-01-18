@@ -8,6 +8,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 
       const blobImage = document.createElement('img')
       blobImage.setAttribute('src', blob)
+      blobImage.setAttribute('class', 'preview')
 
       const inputHTML = document.createElement('input')
       inputHTML.setAttribute('id', `cat-image_${imageElementNum}`)

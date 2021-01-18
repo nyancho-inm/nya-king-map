@@ -40,8 +40,7 @@
 }
 
 .weight-bold-text {
-  font-weight: bold;
-  
+  font-weight: bold;  
   margin-bottom: 20px;
 }
 
@@ -84,10 +83,12 @@
   border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
+  color: black;
 }
 
 .cats-explain {
   margin-top: 2vh;
+  color: black;
 }
 
 .select-box {
@@ -167,7 +168,6 @@
   font-size: 13px;
 }
 
-img{
-  max-width:100%;
-  height:auto;
+.preview {
+  width: 40%;
 }
