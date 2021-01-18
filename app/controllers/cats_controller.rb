@@ -4,6 +4,7 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
 
   def index
     @cats = Cat.all.order(created_at: :desc)
+    @cats = Cat.all.page(params[:page]).per(15)
   end
 
   def new

@@ -32,8 +32,8 @@
 
 .cat-box-img {
    display: inline-block;
-      width: 90%;
-      height: 90%;
+      width: 700px;
+      height: 500px;
       margin: 16px;
     }
 
@@ -45,6 +45,7 @@
   color: #FFF;
   margin: 20px 0px;
   padding: 2vh 10vw;
+  border-radius: 100px;
 }
 
 .or-text {
@@ -58,6 +59,7 @@
   color: black;
   margin: 20px 0px;
   padding: 2vh 10vw;
+  border-radius: 100px;
 }
 
 .cat-explain-box {
@@ -72,7 +74,8 @@
 
 .detail-cat {
   width: 20%;
-  background-color: #eee;
+  color:  white;
+  background-color:rgb(240, 171, 171);
   border: 1px solid #dedede;
   font-size: 20px;
   text-align: center;
@@ -142,6 +145,10 @@
   resize: none; 
 }
 
+.comment {
+  font-size: 20px;
+}
+
 .nickname {
   color: lightcoral;
   text-align: left;
@@ -193,7 +200,7 @@
 
 .links {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 50vw;
 
 }

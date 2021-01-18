@@ -40,8 +40,7 @@
 }
 
 .weight-bold-text {
-  font-weight: bold;
-  
+  font-weight: bold;  
   margin-bottom: 20px;
 }
 
@@ -84,10 +83,12 @@
   border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
+  color: black;
 }
 
 .cats-explain {
   margin-top: 2vh;
+  color: black;
 }
 
 .select-box {
@@ -122,13 +123,14 @@
 }
 
 .post-btn {
-  background: #ea352d;
-  border: 1px solid #ea352d;
+  background: lightcoral;
+  border: 1px solid lightcoral;
   color: #fff;
   width: 100%;
   height: 50px;
   font-size: 14px;
   margin: 4vh 0;
+  border-radius: 100px;
 }
 
 .back-btn {
@@ -137,6 +139,7 @@
   color: #fff;
   padding: 15px 35%;
   text-decoration: none;
+  border-radius: 100px;
 }
 
 .cats-post-footer {
@@ -165,7 +168,6 @@
   font-size: 13px;
 }
 
-img{
-  max-width:100%;
-  height:auto;
+.preview {
+  width: 40%;
 }
