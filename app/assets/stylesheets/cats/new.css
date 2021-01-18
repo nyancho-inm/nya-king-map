@@ -122,13 +122,14 @@
 }
 
 .post-btn {
-  background: #ea352d;
-  border: 1px solid #ea352d;
+  background: lightcoral;
+  border: 1px solid lightcoral;
   color: #fff;
   width: 100%;
   height: 50px;
   font-size: 14px;
   margin: 4vh 0;
+  border-radius: 100px;
 }
 
 .back-btn {
@@ -137,6 +138,7 @@
   color: #fff;
   padding: 15px 35%;
   text-decoration: none;
+  border-radius: 100px;
 }
 
 .cats-post-footer {

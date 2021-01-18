@@ -1,12 +1,23 @@
 ja:
- activerecord:
-   attributes:
-     user:
-       nickname: ニックネーム
-     cat:
-        images: 画像
-        message: メッセージ
-        prefecture_id: 都道府県
-        area: 市町村
-        place: 会えた場所
-        user: ユーザー情報
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
+
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+      cat:
+          images: 画像
+          message: メッセージ
+          prefecture_id: 都道府県
+          area: 市町村
+          place: 会えた場所
+          user: ユーザー情報
+
+  
+      
