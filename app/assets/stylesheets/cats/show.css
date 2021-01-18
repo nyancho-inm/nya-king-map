@@ -24,18 +24,18 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.cat-box-img {
+  display: inline-block;
+  width: 90%;
+  height: 550px;
+  margin: 16px;
+}
+
 .cat-box>.name {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
 }
-
-.cat-box-img {
-   display: inline-block;
-      width: 700px;
-      height: 500px;
-      margin: 16px;
-    }
 
 .item-red-btn {
   text-align: center;
