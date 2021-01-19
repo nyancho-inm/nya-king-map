@@ -200,3 +200,12 @@
   font-weight: bold;
   font-size: 30px;
 }
+
+.cat-details {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+a {
+  color: lightcoral;
+}

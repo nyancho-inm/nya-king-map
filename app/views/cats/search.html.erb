@@ -1,7 +1,5 @@
 <%= render "shared/header" %>
-  <div class="contents row">
-    <%=@cats.each do |cat| %>
-      <%= render partial: "cat", locals: { cat: cat} %>
-    <% end %>
-  </div>
+
+      <%= render @cats, @comments %>
+  
 <%= render "shared/footer" %>
