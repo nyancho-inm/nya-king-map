@@ -52,17 +52,13 @@
         <%= image_tag "ハートのマーク2.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
         <span>お気に入り 0</span>
       </div>
-      <div class="report-btn">
-        <%= image_tag "パトランプ.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な投稿の通報</span>
-      </div>
     </div>
   </div>
   <div class="comment-box">
     <% if user_signed_in? %>
       <p>< コメント一覧 ></p>
       <div id='comment' >
-        <% @comments.reverse_each do |comment| %>
+        <% @comments.each do |comment| %>
           <div class='comment-area'>
             <div class="nickname"><%= comment.user.nickname %></div>          
             <div class="comment"><%= comment.text %></div>
