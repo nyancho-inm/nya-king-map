@@ -2,24 +2,7 @@
 
 <div class="cat-show">
   <div class="cat-box">
-    <h2 class="name">
-      <%= @cat.prefecture.name %> <%= @cat.area %> <%= @cat.place %>
-    </h2>
-      画像たくさんある場合はスライドで見れるよ
-    <div class='cat-img-content'>
-      <% @cat.images.each do |image|%>
-        <%= image_tag image ,class:"cat-box-img" %>
-      <% end %>
-    </div>
-
-    <% if user_signed_in? %>
-      <% if current_user.id == @cat.user_id %>
-        <%= link_to '内容の編集', edit_cat_path, method: :get, class: "item-red-btn" %>
-        <p class='or-text'>or</p>
-        <%= link_to '削除', cat_path, method: :delete, class:'item-destroy' %>
-      <% end %>
-    <% end %>
-
+    
     <div class="cat-explain-box">
       <% if user_signed_in? %>
         <% if current_user.liked_by?(@cat.id) %>
@@ -38,7 +21,27 @@
           </td>
         <% end %>
       <% end %>
+      <h2 class="name">
+        <%= @cat.prefecture.name %> <%= @cat.area %> <%= @cat.place %>
+      </h2>
     </div>
+
+      画像たくさんある場合はスライドで見れるよ
+    <div class='cat-img-content'>
+      <% @cat.images.each do |image|%>
+        <%= image_tag image ,class:"cat-box-img" %>
+      <% end %>
+    </div>
+    <div class="edit">
+      <% if user_signed_in? %>
+        <% if current_user.id == @cat.user_id %>
+          <%= link_to '編集', edit_cat_path, method: :get, class: "item-red-btn" %>
+          <%= link_to '削除', cat_path, method: :delete, class:'item-destroy' %>
+        <% end %>
+      <% end %>
+    </div>
+      
+    
     <table class="detail-table">
       <tbody>
         <tr>
