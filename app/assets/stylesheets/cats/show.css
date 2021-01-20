@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vh 0;
 }
 
 .cat-box {
@@ -27,46 +26,46 @@
 .cat-box-img {
   display: inline-block;
   width: 90%;
-  height: 550px;
+  height: 500px;
   margin: 16px;
 }
 
-.cat-box>.name {
+.cat-box>.edit {
+  display: flex;
+  margin: 20px; 
+}
+
+.cat-explain-box {
+  font-size: 30px;
+  justify-content: space-between;
+}
+
+.cat-explain-box>.name {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
+  margin-top: 20px;
 }
 
 .item-red-btn {
   text-align: center;
   background-color: lightcoral;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: #FFF;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
-  border-radius: 100px;
-}
-
-
-
-.or-text {
-  font-size: 20px;
+  margin: 10px;
+  padding: 3vh 4vw;
+  border-radius: 200px;
 }
 
 .item-destroy {
   background-color: rgb(165, 194, 127);
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   color:#fff;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
-  border-radius: 100px;
-}
-
-.cat-explain-box {
-  font-size: 18px;
-  margin: 40px 0px;
+  margin: 10px;
+  padding: 3vh 4vw;
+  border-radius: 50px;
 }
 
 .detail-table {
@@ -95,21 +94,6 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-}
-
-.favorite-btn {
-  width: 15vw;
-  min-width: 200px;
-  color: rgb(249, 75, 0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
-}
-
-.favorite-heart-icon {
-  margin-right: 10px;
-  color: palevioletred;
 }
 
 .comment-box {

@@ -2,27 +2,46 @@
 
 <div class="cat-show">
   <div class="cat-box">
-    <h2 class="name">
-      <%= @cat.prefecture.name %> <%= @cat.area %> <%= @cat.place %>
-    </h2>
+    
+    <div class="cat-explain-box">
+      <% if user_signed_in? %>
+        <% if current_user.liked_by?(@cat.id) %>
+          <td>
+            <%= link_to destroy_like_path(@cat), class: "like-link", method: :DELETE do %>
+              <i class="fa fa-heart like-btn-unlike"></i>
+            <% end %>
+          </td>
+          <%= @cat.likes.count %>
+        <% else %>
+          <td>
+            <%= link_to create_like_path(@cat), calss: "like-link", method: :POST do %>
+              <i class="fa fa-heart like-btn"></i>
+            <% end %>
+            <%= @cat.likes.count %>
+          </td>
+        <% end %>
+      <% end %>
+      <h2 class="name">
+        <%= @cat.prefecture.name %> <%= @cat.area %> <%= @cat.place %>
+      </h2>
+    </div>
+
       画像たくさんある場合はスライドで見れるよ
     <div class='cat-img-content'>
       <% @cat.images.each do |image|%>
         <%= image_tag image ,class:"cat-box-img" %>
       <% end %>
     </div>
-
-    <% if user_signed_in? %>
-      <% if current_user.id == @cat.user_id %>
-        <%= link_to '内容の編集', edit_cat_path, method: :get, class: "item-red-btn" %>
-        <p class='or-text'>or</p>
-        <%= link_to '削除', cat_path, method: :delete, class:'item-destroy' %>
+    <div class="edit">
+      <% if user_signed_in? %>
+        <% if current_user.id == @cat.user_id %>
+          <%= link_to '編集', edit_cat_path, method: :get, class: "item-red-btn" %>
+          <%= link_to '削除', cat_path, method: :delete, class:'item-destroy' %>
+        <% end %>
       <% end %>
-    <% end %>
-
-    <div class="cat-explain-box">
-      <span><%= "投稿内容" %></span>
     </div>
+      
+    
     <table class="detail-table">
       <tbody>
         <tr>
@@ -47,12 +66,6 @@
         </tr>
       </tbody>
     </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "ハートのマーク2.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-    </div>
   </div>
   <div class="comment-box">
     <% if user_signed_in? %>

@@ -7,7 +7,7 @@
   padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
-  background-color: rgb(252, 251, 246);
+  background-color: rgb(252, 248, 246);
 }
 
 .search-bar-contents {
@@ -43,7 +43,7 @@
 }
 
 .search-button-2 {
-  width: 4vh;
+  width: 4.5vh;
   border: 0;
   cursor: pointer;
   background-color: lightcoral;

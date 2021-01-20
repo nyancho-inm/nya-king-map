@@ -4,6 +4,7 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
 
   def index
     @cats = Cat.all.order(created_at: :desc).page(params[:page]).per(15) 
+    @likes_count = Like.where(cat_id: @cats.ids)
   end
 
   def new
@@ -22,6 +23,7 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
   def show
     @comment = Comment.new
     @comments = @cat.comments.includes(:user)
+    @likes_count = Like.where(cat_id: @cat.id)
   end
 
   def edit
