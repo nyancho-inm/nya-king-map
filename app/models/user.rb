@@ -11,11 +11,15 @@ class User < ApplicationRecord
 
   has_many :cats
   has_many :comments, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   def self.guest
     find_or_create_by!(nickname: 'ゲスト', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
+  end
+
+  def liked_by?(cat_id)
+    likes.where(cat_id: cat_id).exists?
   end
 end
