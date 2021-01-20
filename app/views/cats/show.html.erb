@@ -21,7 +21,23 @@
     <% end %>
 
     <div class="cat-explain-box">
-      <span><%= "投稿内容" %></span>
+      <% if user_signed_in? %>
+        <% if current_user.liked_by?(@cat.id) %>
+          <td>
+            <%= link_to destroy_like_path(@cat), class: "like-link", method: :DELETE do %>
+              <i class="fa fa-heart like-btn-unlike"></i>
+            <% end %>
+          </td>
+          <%= @cat.likes.count %>
+        <% else %>
+          <td>
+            <%= link_to create_like_path(@cat), calss: "like-link", method: :POST do %>
+              <i class="fa fa-heart like-btn"></i>
+            <% end %>
+            <%= @cat.likes.count %>
+          </td>
+        <% end %>
+      <% end %>
     </div>
     <table class="detail-table">
       <tbody>
@@ -47,12 +63,6 @@
         </tr>
       </tbody>
     </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "ハートのマーク2.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-    </div>
   </div>
   <div class="comment-box">
     <% if user_signed_in? %>

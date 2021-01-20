@@ -1,0 +1,15 @@
+<% if current_user.liked_by?(cat.id) %>
+  <td>
+    <%= link_to destroy_like_path(cat), class: "like-link", method: :DELETE, remote: true do %>
+      <i class="fa fa-heart like-btn-unlike"></i>
+    <% end %>
+  </td>
+  <%= cat.likes.count %>
+<% else %>
+  <td>
+    <%= link_to create_like_path(cat), calss: "like-link", method: :POST, remote: true do %>
+      <i class="fa fa-heart like-btn"></i>
+    <% end %>
+    <%= cat.likes.count %>
+  </td>
+<% end %>

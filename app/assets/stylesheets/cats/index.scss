@@ -167,12 +167,18 @@ a {
 
 .prefecture-name {
   font-size: 2.5vh;
+  color: black;
 }
 
 .area-name {
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
+  color: black;
+}
+
+.area {
+  color: black;
 }
 
 
@@ -205,4 +211,12 @@ a {
 
 .pagination>li>a:hover {        
   border-radius: 15px;    
+}
+
+.like-btn {
+  color: #8899a6;
+}
+
+.like-btn-unlike {
+  color: #ff2581;
 }

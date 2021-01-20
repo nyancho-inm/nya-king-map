@@ -24,20 +24,38 @@
         <% @cats.each do |cat| %>    
           <li class='list'>
             <%= link_to cat_path(cat.id), method: :get do %>
-              <div class='cat-img-content'>
-                 <%= image_tag cat.images[0], class: "cat-img" %>
+              <div class='cat-img-content' >
+                <%= image_tag cat.images[0], class: "cat-img" %>
               </div>
               <div class='cat-info'>
                 <h3 class='prefecture-name'>
                   <%= cat.prefecture.name %>
                 </h3>
-                <div class='area-name'>
-                  <span><%= cat.area %><br><%= cat.user.nickname %> さん</span>
-                  <div class='star-btn'>
-                    <%= image_tag "ハート.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
+                <div class="area-name">
+                  <div class="area-name">
+                    <p><%= cat.area %></p>
+                    <p><%= cat.user.nickname %> さん</p>
                   </div>
                 </div>
+                <tr>
+                <% if user_signed_in? %>
+                  <% if current_user.liked_by?(cat.id) %>
+                    <td>
+                      <%= link_to destroy_like_path(cat), class: "like-link", method: :DELETE do %>
+                        <i class="fa fa-heart like-btn-unlike"></i>
+                      <% end %>
+                    </td>
+                    <%= cat.likes.count %>
+                  <% else %>
+                    <td>
+                      <%= link_to create_like_path(cat), calss: "like-link", method: :POST do %>
+                        <i class="fa fa-heart like-btn"></i>
+                      <% end %>
+                      <%= cat.likes.count %>
+                    </td>
+                  <% end %>
+                <% end %>
+                </tr> 
               </div>
             <% end %>
           </li>
