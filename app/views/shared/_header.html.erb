@@ -1,5 +1,8 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
+      
+        
+      
   <div class='search-bar-contents'>
     <%= link_to image_tag("nyaking-map.png", class:"furima-icon"), "/" %>
     <%= form_with(url: search_cats_path, local: true, method: :get, class: "search-form") do |f| %>
@@ -7,8 +10,15 @@
       <%= f.button type: "submit", class: "search-button" do %>
         <%= image_tag "search.png", class:"search-icon" %>
       <% end %>
-    
+    <% end %>
+    <%= search_form_for(@q, url: cat_prefecture_path, class: "search-form-2") do |f| %>
+      <%= f.collection_select(:prefecture_id_eq, Prefecture.all, :id, :name, {prompt:"エリアで探す"}, {class:"type-list", id:"prefecture"}) %>
+      <%= f.button type: "submit", class: "search-button" do %>
+        <%= image_tag "search.png", class:"search-icon" %>
+      <% end %>
+    <% end %>
   </div>
+  
   <div class='nav'>
     <ul class='lists-left'>
     <li><%= link_to 'おためしログイン', users_guest_sign_in_path, method: :post, class: "test" %></li>
@@ -20,15 +30,6 @@
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
       <% end %>     
     </ul>
-    <ul class='lists-right'>
-      <%#= search_form_for(@q, url: search_cats_path, class: "search-form") do |f| %>
-        <%= f.label :prefecture_id_, '都道府県で探す', class: "area-list" %>
-        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"type-list", id:"prefecture"}) %>
-        <%= f.button type: "submit", class: "search-button-2" do %>
-          <%= image_tag "search.png", class:"search-icon" %>
-        <% end %>
-      <%# end %>
-    </ul>
-  </div>
-  <% end %> 
+
+  </div>     
 </header>

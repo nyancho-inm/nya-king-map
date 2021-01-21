@@ -15,8 +15,8 @@ class Cat < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Cat.where('area LIKE(?) OR prefecture_id LIKE(?) OR message LIKE(?) OR place LIKE(?)',
-                 "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+      Cat.where('area LIKE(?) OR message LIKE(?) OR place LIKE(?)',
+                 "%#{search}%", "%#{search}%", "%#{search}%")
     else
       Cat.all
     end

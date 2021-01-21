@@ -40,7 +40,7 @@
   justify-content: space-between;
 }
 
-.cat-explain-box>.name {
+.name {
   text-align: center;
   font-weight: bold;
   font-size: 25px;

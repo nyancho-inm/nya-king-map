@@ -1,6 +1,7 @@
 class CatsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 before_action :set_cat ,only: [:show, :edit, :update, :destroy]
+before_action :search_prefecture_cat, only: [:index, :prefecture, :hashtag, :search, :show]
 
   def index
     @cats = Cat.all.order(created_at: :desc).page(params[:page]).per(15) 
@@ -47,6 +48,12 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
     @cats = Cat.search(params[:keyword])
   end
 
+  def prefecture
+    @cats = @q.result
+    prefecture_id = params[:q][:prefecture_id_eq]
+    @prefecture = Prefecture.find_by(id: prefecture_id)
+  end
+
   private
 
   def cat_params
@@ -55,5 +62,9 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
 
   def set_cat
     @cat = Cat.find(params[:id])
+  end
+
+  def search_prefecture_cat
+    @q = Cat.ransack(params[:q])
   end
 end

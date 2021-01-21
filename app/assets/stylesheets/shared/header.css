@@ -22,10 +22,10 @@
 }
 
 .search-form {
-  width: 65vw;
+  width: 80vw;
   height: 5vh;
-  display: flex;
-  
+  display: flex; 
+  margin-right: 40px;
 }
 
 .search-form>.input-box {
@@ -42,17 +42,15 @@
   padding: 8px;
 }
 
-.search-button-2 {
-  width: 4.5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: lightcoral;
-  padding: 8px;
-  margin-bottom: 2vw;
-}
-
 .search-icon {
   width: 100%;
+}
+
+.search-form-2 {
+  width: 30vw;
+  height: 5vh;
+  display: flex; 
+  
 }
 
 .nav {
@@ -80,9 +78,10 @@
 
 .type-list {
  height: 5vh;
- width: 10vw;
- font-size: 15px;
- margin-bottom: 2vw;
+ width: 7vw;
+ font-size: 13px;
+ color: gray;
+ 
 }
 
 .lists-right {
