@@ -4,7 +4,7 @@
     <h2 class="name">
       <%= cat.prefecture.name %> <%= cat.area %> <%= cat.place %>
     </h2>
-      画像たくさんある場合はスライドで見れるよ
+      画像がたくさんある場合はスライドで見れるよ
     <div class='cat-img-content'>
       <% cat.images.each do |image|%>
         <%= image_tag image ,class:"cat-box-img" %>
