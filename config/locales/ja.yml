@@ -18,6 +18,8 @@ ja:
           area: 市町村
           place: 会えた場所
           user: ユーザー情報
-
-  
+      comment:
+          text: コメント
+          user: ユーザー情報
+          cat: 猫情報
       
