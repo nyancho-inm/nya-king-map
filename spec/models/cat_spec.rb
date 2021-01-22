@@ -21,7 +21,7 @@ RSpec.describe Cat, type: :model do
     end
     context "投稿できないとき" do
       it "imageが空では投稿できない" do
-        @cat.image = nil
+        @cat.images = nil
         @cat.valid?
         expect(@cat.errors.full_messages).to include "画像を入力してください"
       end
