@@ -162,3 +162,33 @@ RSpec.describe '削除', type: :system do
     end
   end
 end
+
+RSpec.describe "詳細", type: :system do
+  before do
+    @cat = FactoryBot.create(:cat)    
+  end
+  it 'ログインユーザーは詳細ページに遷移してコメント投稿欄が表示される' do
+    visit new_user_session_path
+    fill_in 'email', with: @cat.user.email
+    fill_in 'password', with: @cat.user.password
+    find('input[name="commit"]').click
+    expect(current_path).to eq root_path
+    visit cat_path(@cat)
+    expect(page).to have_selector ("img[src$='test_image.png']")
+    expect(page).to have_content("#{@cat.message}")
+    expect(page).to have_content("#{@cat.area}")
+    expect(page).to have_content("#{@cat.place}")
+    expect(page).to have_content("#{@cat.prefecture.name}")
+    expect(page).to have_selector 'form'
+  end
+  it 'ログインしていないユーザーは詳細ページに遷移してもコメント投稿欄が表示されない' do
+    visit root_path
+    visit cat_path(@cat)
+    expect(page).to have_selector ("img[src$='test_image.png']")
+    expect(page).to have_content("#{@cat.message}")
+    expect(page).to have_content("#{@cat.area}")
+    expect(page).to have_content("#{@cat.place}")
+    expect(page).to have_content("#{@cat.prefecture.name}")
+    expect(page).to have_no_content 'コメント'
+  end
+end
