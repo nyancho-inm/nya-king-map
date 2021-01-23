@@ -110,6 +110,55 @@ RSpec.describe '猫情報編集', type: :system do
       visit cat_path(@cat2)
       expect(page).to have_no_content('編集')
     end
+    it 'ログインしていないユーザーは編集画面には遷移できない' do
+      visit root_path
+      visit cat_path(@cat1)
+      expect(page).to have_no_content('編集')
+      visit cat_path(@cat2)
+      expect(page).to have_no_content('編集')
+    end
   end
 end
 
+RSpec.describe '削除', type: :system do
+  before do
+    @cat1 = FactoryBot.create(:cat)
+    @cat2 = FactoryBot.create(:cat)
+  end
+
+  context '削除できるとき' do
+    it 'ログインしたユーザーは自分の投稿を削除できる' do
+      # cat1を投稿したユーザーでログイン
+      visit new_user_session_path
+      fill_in 'email', with: @cat1.user.email
+      fill_in 'password', with: @cat1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # 詳細ページへ遷移
+      visit cat_path(@cat1)
+      # cat1に削除ボタンがあることを確認する
+      expect(page).to have_content('削除')
+      find_link("削除", href:cat_path(@cat1)).click
+    end
+  end
+  context '削除できないとき' do
+    it 'ログインしたユーザーは自分以外の投稿を削除できない'do
+      # cat1を投稿したユーザーでログイン
+      visit new_user_session_path
+      fill_in 'email', with: @cat1.user.email
+      fill_in 'password', with: @cat1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # cat2の詳細ページに編集ボタンが無いことを確認する
+      visit cat_path(@cat2)
+      expect(page).to have_no_content('削除')
+    end
+    it 'ログインしていないユーザーは削除できない' do
+      visit root_path
+      visit cat_path(@cat1)
+      expect(page).to have_no_content('削除')
+      visit cat_path(@cat2)
+      expect(page).to have_no_content('削除')
+    end
+  end
+end
