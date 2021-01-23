@@ -46,3 +46,70 @@ RSpec.describe "猫情報投稿", type: :system do
   end
 end
 
+RSpec.describe '猫情報編集', type: :system do
+  before do
+    @cat1 = FactoryBot.create(:cat)
+    @cat2 = FactoryBot.create(:cat)
+  end
+
+  context '編集ができるとき' do
+    it 'ログインユーザーは自分の投稿を編集できる' do
+      # cat1を投稿したユーザーでログイン
+      visit new_user_session_path
+      fill_in 'email', with: @cat1.user.email
+      fill_in 'password', with: @cat1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # 詳細ページへ遷移
+      visit cat_path(@cat1)
+      # cat1に編集ボタンがあることを確認する
+      expect(page).to have_content('編集')
+      # 編集ページへ遷移する
+      visit edit_cat_path(@cat1)
+      # 投稿内容が存在することを確認する
+      expect(
+        find('#cat-info').value
+      ).to eq @cat1.message
+      
+      expect(
+        find('#prefecture').value
+      ).to eq "#{@cat1.prefecture_id}"
+
+      expect(
+        find('#cat-area').value
+      ).to eq @cat1.area
+
+      expect(
+        find('#cat-place').value
+      ).to eq @cat1.place
+      # 編集する
+      fill_in 'cat-info', with: "#{@cat1.message}+編集したメッセージ"
+      fill_in 'cat-area', with: "#{@cat1.area}+編集したエリア"
+      fill_in 'cat-place', with: "#{@cat1.place}+編集した場所"
+      # 編集してもCatモデルのカウントは変わらないことを確認する
+      expect{
+        find('input[name="commit"]').click
+      }.to change { Cat.count }.by(0)
+      # 詳細ページに遷移する
+      visit cat_path(@cat1)
+      # 詳細ページには変更した内容が存在することを確認する
+      expect(page).to have_content("#{@cat1.message}+編集したメッセージ")
+      expect(page).to have_content("#{@cat1.area}+編集したエリア")
+      expect(page).to have_content("#{@cat1.place}+編集した場所")
+    end
+  end
+  context '編集できなとき' do
+    it 'ログインしたユーザーは自分以外の投稿の編集画面には遷移できない'do
+      # cat1を投稿したユーザーでログイン
+      visit new_user_session_path
+      fill_in 'email', with: @cat1.user.email
+      fill_in 'password', with: @cat1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # cat2の詳細ページに編集ボタンが無いことを確認する
+      visit cat_path(@cat2)
+      expect(page).to have_no_content('編集')
+    end
+  end
+end
+
