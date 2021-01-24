@@ -98,7 +98,7 @@ RSpec.describe '猫情報編集', type: :system do
       expect(page).to have_content("#{@cat1.place}+編集した場所")
     end
   end
-  context '編集できなとき' do
+  context '編集できないとき' do
     it 'ログインしたユーザーは自分以外の投稿の編集画面には遷移できない'do
       # cat1を投稿したユーザーでログイン
       visit new_user_session_path
