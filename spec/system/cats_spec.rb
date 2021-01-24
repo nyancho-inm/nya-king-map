@@ -10,11 +10,7 @@ RSpec.describe "猫情報投稿", type: :system do
   context '投稿ができるとき' do
     it 'ログインしたユーザーは新規投稿できる' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'email', with: @user.email
-      fill_in 'password', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@user)
       # 投稿ページへのリンクがあることを確認する
       expect(page).to have_content('投稿する')
       # 投稿ページへ移動する
@@ -55,11 +51,7 @@ RSpec.describe '猫情報編集', type: :system do
   context '編集ができるとき' do
     it 'ログインユーザーは自分の投稿を編集できる' do
       # cat1を投稿したユーザーでログイン
-      visit new_user_session_path
-      fill_in 'email', with: @cat1.user.email
-      fill_in 'password', with: @cat1.user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@cat1.user)
       # 詳細ページへ遷移
       visit cat_path(@cat1)
       # cat1に編集ボタンがあることを確認する
@@ -101,11 +93,7 @@ RSpec.describe '猫情報編集', type: :system do
   context '編集できないとき' do
     it 'ログインしたユーザーは自分以外の投稿の編集画面には遷移できない'do
       # cat1を投稿したユーザーでログイン
-      visit new_user_session_path
-      fill_in 'email', with: @cat1.user.email
-      fill_in 'password', with: @cat1.user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@cat1.user)
       # cat2の詳細ページに編集ボタンが無いことを確認する
       visit cat_path(@cat2)
       expect(page).to have_no_content('編集')
@@ -129,11 +117,7 @@ RSpec.describe '削除', type: :system do
   context '削除できるとき' do
     it 'ログインしたユーザーは自分の投稿を削除できる' do
       # cat1を投稿したユーザーでログイン
-      visit new_user_session_path
-      fill_in 'email', with: @cat1.user.email
-      fill_in 'password', with: @cat1.user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@cat1.user)
       # 詳細ページへ遷移
       visit cat_path(@cat1)
       # cat1に削除ボタンがあることを確認する
@@ -144,11 +128,7 @@ RSpec.describe '削除', type: :system do
   context '削除できないとき' do
     it 'ログインしたユーザーは自分以外の投稿を削除できない'do
       # cat1を投稿したユーザーでログイン
-      visit new_user_session_path
-      fill_in 'email', with: @cat1.user.email
-      fill_in 'password', with: @cat1.user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@cat1.user)
       # cat2の詳細ページに編集ボタンが無いことを確認する
       visit cat_path(@cat2)
       expect(page).to have_no_content('削除')
@@ -168,11 +148,7 @@ RSpec.describe "詳細", type: :system do
     @cat = FactoryBot.create(:cat)    
   end
   it 'ログインユーザーは詳細ページに遷移してコメント投稿欄が表示される' do
-    visit new_user_session_path
-    fill_in 'email', with: @cat.user.email
-    fill_in 'password', with: @cat.user.password
-    find('input[name="commit"]').click
-    expect(current_path).to eq root_path
+    sign_in(@cat.user)
     visit cat_path(@cat)
     expect(page).to have_selector ("img[src$='test_image.png']")
     expect(page).to have_content("#{@cat.message}")
