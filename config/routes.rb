@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'comments/new'
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
+  devise_for :users
 
   root to: 'cats#index'
   resources :cats do
