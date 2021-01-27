@@ -45,11 +45,12 @@ before_action :search_prefecture_cat, only: [:index, :prefecture, :hashtag, :sea
   end
 
   def search
-    @cats = Cat.search(params[:keyword])
+    @cats = Cat.search(params[:keyword]).page(params[:page]).per(5)
+
   end
 
   def prefecture
-    @cats = @q.result
+    @cats = @q.result.page(params[:page]).per(5)
     prefecture_id = params[:q][:prefecture_id_eq]
     @prefecture = Prefecture.find_by(id: prefecture_id)
   end
