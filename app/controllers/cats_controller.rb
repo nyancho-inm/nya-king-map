@@ -4,7 +4,7 @@ before_action :set_cat ,only: [:show, :edit, :update, :destroy]
 before_action :search_prefecture_cat, only: [:index, :prefecture, :hashtag, :search, :show]
 
   def index
-    @cats = Cat.all.order(created_at: :desc).page(params[:page]).per(15) 
+    @cats = Cat.all.order(created_at: :desc).page(params[:page]).per(9) 
     @likes_count = Like.where(cat_id: @cats.ids)
   end
 
