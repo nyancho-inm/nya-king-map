@@ -1,15 +1,40 @@
 version: 2.1
 orbs:
-  ruby: circleci/ruby@0.1.2 
+  ruby: circleci/ruby@1.1.0
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5-stretch-node
-    executor: ruby/default
+      - image: circleci/ruby:2.6.5-node-browsers
+        environment:
+          BUNDLER_VERSION: 2.1.4
     steps:
       - checkout
-      - run: gem install bundler:2.1.4
+      - run: gem install bundler -v 2.1.4
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/bundle-install
+      - ruby/install-deps
+  deploy:
+    docker:
+      - image: circleci/ruby:2.6.5-node-browsers
+        environment:
+          BUNDLER_VERSION: 2.1.4
+    steps:
+      - checkout
+      - ruby/install-deps
+      - add_ssh_keys:
+          fingerprints: "33:73:c6:2d:5b:57:fe:93:32:82:fb:2d:54:b7:1b:fe"
+      - deploy:
+          name: Capistrano deploy
+          command: bundle exec cap production deploy
+workflows:
+  version: 2.1
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
