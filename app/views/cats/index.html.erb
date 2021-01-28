@@ -61,19 +61,6 @@
           </li>
         <% end %>
       <% end %>
-
-      <% if @cats.length == 0 %>
-        <li class='list'>
-          <%= link_to '#' do %>
-           <%= image_tag "4.jpg", class: "item-img" %>
-            <div class='cat-info'>
-              <h1>
-                写真を投稿してね
-              </h1>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
     </ul>
     <%= paginate @cats %>
   </div>
