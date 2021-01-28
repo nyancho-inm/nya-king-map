@@ -26,6 +26,7 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
+      - run: yarn install
       - run: mv config/database.yml.ci config/database.yml
       - run:
           name: Wait for DB
