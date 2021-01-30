@@ -23,6 +23,57 @@ https://www.nyakingmap.com/
 <img width="1735" alt="eb3c2d7dc5910c33390287c985d5527a" src="https://user-images.githubusercontent.com/75053805/106352252-c7621b00-6324-11eb-82b3-d2ca4a5cae75.png">
 
 
+# 使用技術
+
+- HTML/CSS
+- Ruby 2.6.5
+- Rails 6.0.0
+- MySQL 5.6.50
+- Linux
+- Nginx(Web Server
+- Unicorn(Application Server)
+- Git/GitHub
+- Docker 20.10.0
+- docker-compose 1.27.4
+- Capistrano
+- AWS EC2
+
+
+# 機能一覧
+
+## ユーザー機能
+
+- ユーザー新規登録・ログイン機能(Gem: devise)
+- ゲストログイン
+
+##  投稿機能
+
+- 新規投稿機能(画像投稿用に Gem: ActiveStorage 使用)
+- 投稿時画像プレビュー機能
+- 投稿一覧表示機能
+- 投稿詳細表示機能
+- 投稿削除機能
+- ページネーション機能(Gem: kaminari)
+
+## コメント機能
+
+- コメント新規投稿機能
+- コメント削除機能
+
+## 検索機能
+
+- キーワード検索機能
+- 都道府県検索機能(Gem: ransack)
+
+## いいね機能
+
+- いいね・いいね解除機能
+
+## テスト機能
+
+- RSpec/Rubocop テスト機能
+- エラーメッセージの日本語表示
+
 
 
 # テーブル設計
